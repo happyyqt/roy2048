@@ -1,26 +1,20 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from 'D:/Projects/roy2048/src/App.tsx'
-import './index.scss';
-import * as serviceWorker from 'D:/Projects/roy2048/src/serviceWorker.ts';
-
-
-function setDocHeight() {
-  document.documentElement.style.setProperty('--vh', `${window.innerHeight / 100}px`);
-}
-
-// @ts-ignore
-window.gtag = window.gtag || (() => undefined);
-
-window.addEventListener('resize', setDocHeight);
-window.addEventListener('orientationchange', setDocHeight);
-setDocHeight();
+import React from 'react'
+import ReactDOM from 'react-dom'
+import './index.css'
+import App from './App'
+import reportWebVitals from './reportWebVitals'
+import { RecoilRoot } from 'recoil'
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <RecoilRoot>
+      <App />
+    </RecoilRoot>
   </React.StrictMode>,
   document.getElementById('root'),
-);
+)
 
-serviceWorker.register();
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals()

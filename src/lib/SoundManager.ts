@@ -20,7 +20,7 @@ export default class SoundManager {
       const sound: Howl = new Howl({
         src: [require(`../assets/audio/effect-${i}.mp3`)],
       });
-      tasks.push(new Promise((resolve, reject) => {
+      tasks.push(new Promise<void>((resolve, reject) => {
         sound.once('load', () => {
           this._soundSources.set(i, sound);
           resolve();
