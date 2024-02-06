@@ -131,13 +131,14 @@ const App: React.FC = () => {
               />
             )}
           {/*eslint-enable*/}
+          {/* dashboard here */}
           <GameHeader
             scores={scores}
             startGame={startGame}
             handleStartGame={handleStartGame}
             removeBestScore={removeBestScore}
           />
-
+          {/* number board here */}
           <GameBoard
             gameboard={gameboard}
             setGameboard={setGameboard}
