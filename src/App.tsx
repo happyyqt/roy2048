@@ -16,6 +16,8 @@ import Settings from './components/Settings'
 const App: React.FC = () => {
   const theme = useRecoilValue<ThemeType>(ThemeState)
 
+  // initialize Board using a function in useState
+
   const [gameboard, setGameboard] = useState<Board>(() => {
     const storedBoard = localStorage.getItem(GAMESTATE)
     return storedBoard !== '' && storedBoard !== null
@@ -66,6 +68,7 @@ const App: React.FC = () => {
     }
     window.addEventListener('resize', setTileSizeOnResize)
     setTileSizeOnResize()
+    // clean up function
     return (): void => {
       window.removeEventListener('resize', setTileSizeOnResize)
     }
