@@ -15,7 +15,7 @@ describe('Test Gameboard', () => {
   test('Gameboard is Rendered', async () => {
     renderWithRecoil(
       <GameBoard
-        gameboard={new Board}
+        gameboard={new Board(undefined)}
         startGame={false}
         updateScore={mockFunction}
         setGameboard={mockFunction}
@@ -26,7 +26,7 @@ describe('Test Gameboard', () => {
   })
 
   test('Game starts correctly with initial tile with value', async () => {
-    const b = new Board
+    const b = new Board(undefined)
     renderWithRecoil(
       <GameBoard
         gameboard={b.init()}
@@ -57,7 +57,7 @@ describe('Test Gameboard', () => {
   })
 
   test('Gameboard calls setGameboard when arrow key is hit', async () => {
-    const b = new Board
+    const b = new Board(undefined)
     renderWithRecoil(
       <GameBoard
         gameboard={b.init()}

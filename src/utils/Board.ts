@@ -43,12 +43,14 @@ export class Board {
     this.isMoving = false
   }
 
+  // insert new value
   addNewValue = (): void => {
     const valIdx = Math.floor(Math.random() * CHOICE_ARR_LEN)
     const insertPointX = Math.floor(Math.random() * DEFAULT_ROW_LEN)
     const insertPointY = Math.floor(Math.random() * DEFAULT_ROW_LEN)
 
     if (this.board[insertPointX][insertPointY].value === 0) {
+      // put random 2 or 4 in insertPoint
       this.board[insertPointX][insertPointY].value = CHOICE_ARR[valIdx]
       this.board[insertPointX][insertPointY].setNew()
     } else {
@@ -124,6 +126,7 @@ export class Board {
     }
 
     switch (direction) {
+      // why we need to transpose / flip the grid ? because the combine/slide is hard for vertical wipe, so flip them first and do the operation and then flip back.
       case 'up':
         this.board = transposeGrid(this.board)
         this.board = flipGrid(this.board)
